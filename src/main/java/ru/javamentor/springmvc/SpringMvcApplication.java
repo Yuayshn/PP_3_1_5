@@ -13,6 +13,6 @@ public class SpringMvcApplication {
 	}
 	private static void openHomePage() throws IOException {
 		Runtime rt = Runtime.getRuntime();
-		rt.exec("rundll32 url.dll,FileProtocolHandler " + "http://localhost:8080/");
+		rt.exec("rundll32 url.dll,FileProtocolHandler " + "http://localhost:8080/login");
 	}
 }

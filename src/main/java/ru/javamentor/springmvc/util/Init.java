@@ -1,6 +1,7 @@
 package ru.javamentor.springmvc.util;
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import ru.javamentor.springmvc.model.Role;
 import ru.javamentor.springmvc.model.User;
 import ru.javamentor.springmvc.repositories.RoleRepository;
@@ -22,6 +23,7 @@ public class Init {
 
 
     @PostConstruct
+    @Transactional
     public void initializedDataBase() {
         roleRepository.save(new Role("USER"));
         roleRepository.save(new Role("ADMIN"));
