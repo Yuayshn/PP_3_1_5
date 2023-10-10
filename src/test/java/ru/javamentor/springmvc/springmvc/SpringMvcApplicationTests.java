@@ -1,4 +1,4 @@
-package ru.javamentor.springmvc;
+package ru.javamentor.springmvc.springmvc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

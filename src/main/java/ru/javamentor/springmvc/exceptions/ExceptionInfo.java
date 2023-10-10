@@ -5,13 +5,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope("prototype")
-public class InfoException {
+public class ExceptionInfo {
+
     private String info;
 
-    public InfoException() {
+    public ExceptionInfo() {
     }
 
-    public InfoException(String info) {
+    public ExceptionInfo(String info) {
         this.info = info;
     }
 

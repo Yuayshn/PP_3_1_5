@@ -1,27 +1,40 @@
 package ru.javamentor.springmvc.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import ru.javamentor.springmvc.dao.RoleDao;
 import ru.javamentor.springmvc.model.Role;
-import ru.javamentor.springmvc.repositories.RoleRepository;
-import javax.annotation.PostConstruct;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class RoleServiceImpl implements RoleService {
-    private final RoleRepository roleRepository;
+    private final RoleDao roleDao;
 
-    public RoleServiceImpl(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
+    @Autowired
+    public RoleServiceImpl(RoleDao roleDao) {
+        this.roleDao = roleDao;
     }
 
     @Override
     public List<Role> getAllRoles() {
-        return roleRepository.findAll();
+        return roleDao.getAllRoles();
     }
+
     @Override
-    public Set<Role> findByIdRoles(List<Long> roles) {
-        return new HashSet<>(roleRepository.findAllById(roles));
+    public Role getRole(String userRole) {
+        return roleDao.getRole(userRole);
+    }
+
+    @Override
+    public Role getRoleById(Long id) {
+        return roleDao.getRoleById(id);
+    }
+
+    @Override
+    @Transactional
+    public void addRole(Role role) {
+        roleDao.addRole(role);
     }
 }
