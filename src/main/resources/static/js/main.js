@@ -1,6 +1,6 @@
 let roleList = [
-    {id: 1, role: "USER"},
-    {id: 2, role: "ADMIN"}
+    {id: 1, role: "ROLE_USER"},
+    {id: 2, role: "ROLE_ADMIN"}
 ]
 let isUser = true;
 
@@ -37,7 +37,7 @@ async function infoUser() {
         .then(user => {
             temp += `
              <span style="color: white">
-               ${user.login} with roles <span>${user.roles.map(e => " " + e.role.substr(5))}</span>
+               ${user.username} with roles <span>${user.roles.map(e => " " + e.role.substr(5))}</span>
                 </div>
             </span>
                 </tr>

@@ -1,7 +1,7 @@
 async function createUser() {
     $('#addUser').click(async () =>  {
         let addUserForm = $('#addForm')
-        let login = addUserForm.find('#usernameCreate').val().trim();
+        let username = addUserForm.find('#usernameCreate').val().trim();
         let password = addUserForm.find('#passwordCreate').val().trim();
         let name = addUserForm.find('#nameCreate').val().trim();
         let surname = addUserForm.find('#surnameCreate').val().trim();
@@ -18,7 +18,7 @@ async function createUser() {
             return array;
         }
         let data = {
-            login: login,
+            username: username,
             password: password,
             name: name,
             surname: surname,

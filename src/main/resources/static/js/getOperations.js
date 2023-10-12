@@ -6,12 +6,12 @@ async function getUser() {
         .then(user => {
             temp = `
                 <tr>
-                    <td>${user.id}</td>
+                    <td>${user.userId}</td>
+                    <td>${user.username}</td>
                     <td>${user.name}</td>
                     <td>${user.surname}</td>
                     <td>${user.age}</td>
                     <td>${user.email}</td>
-                    <td>${user.login}</td>
                     <td>${user.roles.map(e => " " + e.role.substr(5))}</td>
                 </tr>
             `;
@@ -19,34 +19,34 @@ async function getUser() {
 
             $(function (){
                 let role = ""
-                for (let i = 0; i < user.roles.length; i++) {
-                    role = user.roles[i].role
-                    if (role === "ADMIN") {
-                        isUser = false;
-                    }
+            for (let i = 0; i < user.roles.length; i++) {
+                role = user.roles[i].role
+                if (role === "ROLE_ADMIN") {
+                    isUser = false;
                 }
-                if (isUser) {
-                    $("#userTable").addClass("show active");
-                    $("#userTab").addClass("show active");
-                } else {
-                    $("#adminTable").addClass("show active");
-                    $("#adminTab").addClass("show active");
-                }
+            }
+            if (isUser) {
+            $("#userTable").addClass("show active");
+            $("#userTab").addClass("show active");
+            } else {
+            $("#adminTable").addClass("show active");
+            $("#adminTab").addClass("show active");
+            }
             })
         })
 }
 
 async function tittle() {
-    let temp
+    let temp = ''
     const h1a1 = document.querySelector('#h1a1');
     if (isUser) {
         temp = `
-            <h1 class="h1 a1" id="h1a1">User information page</h1>
+            <h1 className="h1 a1" id="h1a1">User information page</h1>
             `;
         h1a1.innerHTML = temp;
     } else {
         temp = `
-            <h1 class="h1 a1" id="h1a1">Admin panel</h1>
+            <h1 className="h1 a1" id="h1a1">Admin panel</h1>
             `;
         h1a1.innerHTML = temp;
     }
@@ -61,20 +61,20 @@ async function getUsers() {
             users.forEach(user => {
                 temp += `
                 <tr>
-                    <td>${user.id}</td>
+                    <td>${user.userId}</td>
+                    <td>${user.username}</td>
                     <td>${user.name}</td>
                     <td>${user.surname}</td>
                     <td>${user.age}</td>
                     <td>${user.email}</td>
-                    <td>${user.login}</td>
                     <td>${user.roles.map(e => " " + e.role.substr(5))}</td>
                     <td>
-                        <button type="button" data-userid="${user.id}" data-action="edit" class="btn btn-info"
-                            class data-toggle="modal" data-target="#editModal">Edit</button>
+                        <button type="button" data-userid="${user.userId}" data-action="edit" class="btn btn-info"
+                            className data-toggle="modal" data-target="#editModal">Edit</button>
                     </td>
                     <td>
-                        <button type="button" data-userid="${user.id}" data-action="delete" class="btn btn-danger"
-                            class data-toggle="modal" data-target="#deleteModal">Delete</button>
+                        <button type="button" data-userid="${user.userId}" data-action="delete" class="btn btn-danger"
+                            className data-toggle="modal" data-target="#deleteModal">Delete</button>
                     </td>
                 </tr>
                `;
