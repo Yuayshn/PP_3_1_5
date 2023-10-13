@@ -31,8 +31,8 @@ public class Init {
         Set<Role> userRole = new HashSet<>();
         Set<Role> allRoles = new HashSet<>();
 
-        adminRole.add(roleService.getRoleById(1L));
-        userRole.add(roleService.getRoleById(2L));
+        adminRole.add(roleService.getRoleById(2L));
+        userRole.add(roleService.getRoleById(1L));
         allRoles.add(roleService.getRoleById(1L));
         allRoles.add(roleService.getRoleById(2L));
 

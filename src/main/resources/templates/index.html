@@ -64,7 +64,7 @@
             <div class="col-2">
                 <ul class="list-group list-group-flush">
                     <li>
-                    <a sec:authorize="hasRole('ROLE_ADMIN')"  class="list-group-item" id="adminTab"
+                    <a sec:authorize="hasAuthority('ROLE_ADMIN')"  class="list-group-item" id="adminTab"
                            href="#adminTable" data-toggle="tab">Admin</a>
                     </li>
                     <li>
@@ -76,7 +76,7 @@
             <div class="col-10">
                 <h1 className="h1 a1" id="h1a1"></h1>
                 <div class="tabs">
-                    <ul sec:authorize="hasRole('ROLE_ADMIN')" class="nav nav-tabs">
+                    <ul sec:authorize="hasAuthority('ROLE_ADMIN')" class="nav nav-tabs">
                         <li class="nav-item">
                             <a class="nav-link active" href="#adminTable" data-toggle="tab">Users table</a>
                         </li>
@@ -86,7 +86,7 @@
                     </ul>
                 </div>
                 <div class="tab-content border">
-                    <div sec:authorize="hasAnyRole('ROLE_ADMIN')" class="tab-pane fade" id="adminTable">
+                    <div sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="tab-pane fade" id="adminTable">
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                             <div class="navbar-brand">All users</div>
                         </nav>
